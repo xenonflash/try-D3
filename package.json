@@ -1,0 +1,25 @@
+{
+  "name": "try-d3",
+  "version": "1.0.0",
+  "description": "a simple project using D3",
+  "main": "index.js",
+  "scripts": {
+   "start": "browser-sync start --server --files ./css/*.* ./index.html" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xenonflash/try-D3.git"
+  },
+  "keywords": [
+    "d3"
+  ],
+  "author": "xenonflash",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xenonflash/try-D3/issues"
+  },
+  "homepage": "https://github.com/xenonflash/try-D3#readme",
+  "devDependencies": {
+    "d3": "^4.9.1"
+  }
+}
