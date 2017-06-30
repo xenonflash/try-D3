@@ -1,24 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" type="" href="./css/index.css">
 </head>
+
 <body>
   <h1>hello D3</h1>
   <p>original svg</p>
   <svg width="50" height="50">
-    <circle
-      cx="25"
-      cy="25"
-      r="25"
-      fill="blue"
-      stroke="gray"
-      stroke-width="10"
-    />
+    <circle cx="25" cy="25" r="25" fill="blue" stroke="gray" stroke-width="10" />
   </svg>
+  <hr>
+  <h2>selector</h2>
+  <div class="data-bind">
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+  <hr>
+    <h2>colum chart</h2>
+    <svg id = "colum-chart" ></svg>
+
+  <script src="./node_modules/d3/build/d3.min.js"></script>
+  <script>
+    d3.select('body')
+      .append('p')
+      .text('this is a paragraph by D3');
+    var data = ['xiaoming', "xiaodhei", "xiaobai"];
+
+    d3.select('.data-bind')
+      .selectAll('p')
+      .data(data)
+      .text((d, i) => (d + i))
+      .style('color', 'red');
+    d3.select('.data-bind')
+      .select('p')
+      .style('color', 'green');
+/*********************colum chart *********************/
+    var columChart = d3.select('#colum-chart')
+      .attr('width', 500)
+      .attr('height', 300)
+      .style('border', '1px solid #aaa');
+    var dataset = [120, 350, 200, 100, 290, 300];
+    var columHeight = 40;
+    columChart.selectAll('rect')
+              .data(dataset)
+              .enter()
+              .append('rect')
+              .attr('x', 20)
+              .attr('y', (d, i) => (i * columHeight))
+              .attr('width', (d, i) => (d))
+              .attr('height', columHeight - 2)
+              .attr('fill', 'lightblue');
+  </script>
 </body>
+
 </html>

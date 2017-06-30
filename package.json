@@ -4,7 +4,7 @@
   "description": "a simple project using D3",
   "main": "index.js",
   "scripts": {
-   "start": "browser-sync start --server --files ./css/*.* ./index.html" 
+    "start": "browser-sync start --server --files ./css/*.* ./index.html"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/xenonflash/try-D3#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.12",
     "d3": "^4.9.1"
   }
 }
