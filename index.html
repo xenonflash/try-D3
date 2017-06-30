@@ -47,7 +47,7 @@
       .attr('width', 400)
       .attr('height', 200)
       .style('border', '1px solid #aaa');
-    var dataset = [120, 350, 200, 100, 290, 300];
+    var dataset = [120, 350, 200, 270, 290, 300];
     var columHeight = 200 / dataset.length;
     columChart.selectAll('rect')
               .data(dataset)
@@ -64,17 +64,28 @@
     var linear = d3.scaleLinear()
                           .domain([d3.min(dataset),d3.max(dataset)])
                           .range([0, 270]);
-    console.log(linear);                          
     columChart2.selectAll("rect")
                .data(dataset)
                .enter()
                .append('rect')
                .attr('x', (d, i) => (i * 30 + 20))
-               .attr('y', (d) => (280 - linear(d)))
+               .attr('y', (d) => (300 - linear(d)))
                .attr('width', 18)
                .attr('height', (d) => (linear(d)))
                .attr('fill', 'lightgreen');
-/*********************  使用坐标轴  ***********************************/              
+/*********************  使用坐标轴  ***********************************/
+    var axisBottom = d3.axisBottom()
+                  .scale(linear)
+                  .ticks(4);
+    var axisLeft = d3.axisLeft()
+                     .scale(linear)
+                     .ticks(5)
+    columChart.append('g')
+              .attr('transform', 'translate(20, 180)')
+              .call(axisBottom);
+    columChart2.append('g')
+                .attr('transform', 'translate(30, 20)')
+                .call(axisLeft)              
   </script>
 </body>
 
